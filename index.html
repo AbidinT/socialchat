@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>social app</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .bir {
+        border: 1px solid black;
+        width: 200px;
+        height: 900px;
+      }
+      .container {
+        border: 1px solid gray;
+        width: 200px;
+        height: 32px;
+        background-color: deepskyblue;
+        border-radius: 5px;
+        text-align: center;
+        color: beige;
+      }
+      img {
+        width: 180px;
+        height: auto;
+        padding: 7px;
+        border-radius: 5px;
+      }
+      #nmbr {
+        font-size: smaller;
+      }
+      .ilk {
+        border: 1px solid gray;
+        width: 187px;
+        height: 320px;
+        padding: 5px;
+        background-color: #657786;
+      }
+      .fa-regular {
+        padding-left: 8px;
+      }
+      .fa-regular:active {
+        color: green;
+      }
+      .fa-regular:visited {
+        color: green;
+      }
+      .fa-bookmark {
+        margin-left: 70px;
+      }
+      #btn {
+        padding-top: 20px;
+        
+      
+        text-align: center;
+      }
+      #btn:active{
+        color: green;
+      }
+      #yaz{
+        font-size: small;
+        margin-top: 25px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bir">
+      <div class="container">
+        Chat
+        <div id="nmbr">Number:+085550124</div>
+      </div>
+      <div class="ilk">
+        <img src="image0.png" alt="yükleniyor..." />
+        <i class="fa-regular fa-thumbs-up"></i>
+        <i class="fa-regular fa-comment"></i>
+        <i class="fa-regular fa-share-from-square"></i>
+        <i class="fa-regular fa-bookmark" onclick="comment()"></i>
+        <div id="inputArea" style="display: none">
+          <input type="text" id="commentInput" />
+          <button onclick="yorum()" id="btn" style="display: none" i class="fa-solid fa-check"></i></button>
+        </div>
+        <div id="yaz"></div>
+      </div>
+    </div>
+    <script>
+      const icon = document.querySelector(".fa-comment");
+      const inputArea = document.getElementById("inputArea");
+      const butongoster = document.getElementById("btn");
+      icon.addEventListener("click", () => {
+        if (inputArea.style.display === "none") {
+          inputArea.style.display = "block";
+          butongoster.style.display = "block";
+        } else {
+          inputArea.style.display = "none";
+        }
+      });
+      function yorum(){
+        var girdi =document.querySelector("#commentInput").value;
+       var yazburaya=document.querySelector("#yaz");
+       yazburaya.innerHTML=girdi;
+       butongoster.style.display="none";
+       inputArea.style.display="none";
+      }
+    </script>
+  </body>
+</html>
