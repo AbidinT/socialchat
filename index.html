@@ -12,61 +12,133 @@
       referrerpolicy="no-referrer"
     />
     <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+
       .bir {
         border: 1px solid black;
-        width: 200px;
-        height: 900px;
+        width: 100%;
+        max-width: 400px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
+
       .container {
         border: 1px solid gray;
-        width: 200px;
+        max-width: 100%;
+        width: 100%;
         height: 32px;
         background-color: deepskyblue;
-        border-radius: 5px;
+        border-radius: 5px 5px 0 0;
         text-align: center;
         color: beige;
+        line-height: 32px;
+        font-size: 18px;
+        font-weight: bold;
       }
-      img {
-        width: 180px;
-        height: auto;
-        padding: 7px;
-        border-radius: 5px;
-      }
+
       #nmbr {
         font-size: smaller;
       }
+
+      img {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+        padding: 7px;
+        border-radius: 5px;
+        display: block;
+        margin: 0 auto;
+      }
+
       .ilk {
         border: 1px solid gray;
-        width: 187px;
-        height: 320px;
+        width: calc(100% - 10px);
+        max-width: 187px;
         padding: 5px;
         background-color: #657786;
-      }
-      .fa-regular {
-        padding-left: 8px;
-      }
-      .fa-regular:active {
-        color: green;
-      }
-      .fa-regular:visited {
-        color: green;
-      }
-      .fa-bookmark {
-        margin-left: 70px;
-      }
-      #btn {
-        padding-top: 20px;
-        
-      
+        margin: 10px auto;
+        border-radius: 10px;
         text-align: center;
       }
-      #btn:active{
-        color: green;
+
+      .fa-regular {
+        padding-left: 8px;
+        font-size: 18px;
+        cursor: pointer;
       }
-      #yaz{
+
+      .fa-bookmark {
+        margin-left: 10px;
+      }
+
+      #btn {
+        padding: 10px;
+        margin: 10px auto;
+        text-align: center;
+        border: none;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #btn:active {
+        background-color: #218838;
+      }
+
+      #yaz {
         font-size: small;
         margin-top: 25px;
         text-align: left;
+        color: white;
+        padding: 5px;
+        background-color: #3a3f47;
+        border-radius: 5px;
+      }
+
+      #inputArea {
+        display: none;
+        margin-top: 10px;
+      }
+
+      input {
+        width: 90%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      @media (max-width: 600px) {
+        .bir {
+          width: 90%;
+        }
+
+        .container {
+          font-size: 16px;
+        }
+
+        .fa-regular {
+          font-size: 16px;
+        }
+
+        #btn {
+          font-size: 14px;
+        }
+
+        #yaz {
+          font-size: smaller;
+        }
       }
     </style>
   </head>
@@ -74,7 +146,7 @@
     <div class="bir">
       <div class="container">
         Chat
-        <div id="nmbr">Number:+085550124</div>
+        <div id="nmbr">Number: +085550124</div>
       </div>
       <div class="ilk">
         <img src="/socialchat/image0.png" alt="yükleniyor..." />
@@ -82,9 +154,9 @@
         <i class="fa-regular fa-comment"></i>
         <i class="fa-regular fa-share-from-square"></i>
         <i class="fa-regular fa-bookmark" onclick="comment()"></i>
-        <div id="inputArea" style="display: none">
-          <input type="text" id="commentInput" />
-          <button onclick="yorum()" id="btn" style="display: none" i class="fa-solid fa-check"></i></button>
+        <div id="inputArea">
+          <input type="text" id="commentInput" placeholder="Yorum yaz..." />
+          <button onclick="yorum()" id="btn"><i class="fa-solid fa-check"></i> Gönder</button>
         </div>
         <div id="yaz"></div>
       </div>
@@ -101,12 +173,12 @@
           inputArea.style.display = "none";
         }
       });
-      function yorum(){
-        var girdi =document.querySelector("#commentInput").value;
-       var yazburaya=document.querySelector("#yaz");
-       yazburaya.innerHTML=girdi;
-       butongoster.style.display="none";
-       inputArea.style.display="none";
+      function yorum() {
+        var girdi = document.querySelector("#commentInput").value;
+        var yazburaya = document.querySelector("#yaz");
+        yazburaya.innerHTML = girdi;
+        butongoster.style.display = "none";
+        inputArea.style.display = "none";
       }
     </script>
   </body>
